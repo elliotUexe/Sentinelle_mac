@@ -2,8 +2,11 @@ import Foundation
 import SwiftUI
 
 /// Statuts miroir de `HealthStatus` côté Sentinel (`app/models/state.py`).
+/// `muted` : silence manuel temporaire posé par l'utilisateur sur un service
+/// down/degraded — masque l'alerte sans changer la réalité du problème, donc
+/// traité comme non alarmant ci-dessous (ni down ni degraded).
 enum ServiceStatus: String, Decodable {
-    case up, down, degraded, suppressed_down, unknown
+    case up, down, degraded, suppressed_down, unknown, muted
 }
 
 private struct ServiceSummary: Decodable {

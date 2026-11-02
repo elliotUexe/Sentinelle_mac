@@ -11,7 +11,7 @@ struct WebView: NSViewRepresentable {
     let url: URL
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(dashboardHost: url.host)
+        Coordinator(dashboardURL: url)
     }
 
     func makeNSView(context: Context) -> WKWebView {
@@ -28,14 +28,49 @@ struct WebView: NSViewRepresentable {
     /// sont en `target="_blank"` : sans `uiDelegate`, WKWebView les ignore
     /// silencieusement. On les envoie au navigateur par défaut, comme tout
     /// lien cliqué qui sort du dashboard.
+    ///
+    /// Si le dashboard ne charge pas (Sentinel injoignable ou en redémarrage),
+    /// WKWebView laisse une page blanche et ne réessaie jamais : on affiche un
+    /// message et on recharge toutes les quelques secondes.
     @MainActor
     final class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
-        private let dashboardHost: String?
+        private let dashboardURL: URL
+        private var retryScheduled = false
+        private static let retryDelaySeconds = 5.0
         private static let log = Logger(subsystem: "com.hitsnow.SentinelMac", category: "liens")
 
-        init(dashboardHost: String?) {
-            self.dashboardHost = dashboardHost
+        init(dashboardURL: URL) {
+            self.dashboardURL = dashboardURL
         }
+
+        func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+            retryLater(webView, after: error)
+        }
+
+        func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+            retryLater(webView, after: error)
+        }
+
+        private func retryLater(_ webView: WKWebView, after error: Error) {
+            // Navigation annulée (nouveau chargement, lien envoyé au
+            // navigateur) : pas une panne.
+            if (error as NSError).code == NSURLErrorCancelled { return }
+            guard !retryScheduled else { return }
+            retryScheduled = true
+            Self.log.notice("dashboard injoignable, nouvel essai dans 5 s : \(error.localizedDescription, privacy: .public)")
+            webView.loadHTMLString(Self.unreachablePage, baseURL: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + Self.retryDelaySeconds) { [weak self, weak webView] in
+                guard let self, let webView else { return }
+                self.retryScheduled = false
+                webView.load(URLRequest(url: self.dashboardURL))
+            }
+        }
+
+        private static let unreachablePage = """
+            <html><body style="font: 14px -apple-system; color: #888; display: flex; \
+            align-items: center; justify-content: center; height: 90vh; margin: 0;">\
+            Sentinel injoignable, nouvel essai dans quelques secondes…</body></html>
+            """
 
         func webView(
             _ webView: WKWebView,
@@ -55,7 +90,7 @@ struct WebView: NSViewRepresentable {
         ) async -> WKNavigationActionPolicy {
             guard navigationAction.navigationType == .linkActivated,
                   let url = navigationAction.request.url,
-                  url.host != dashboardHost else { return .allow }
+                  url.host != dashboardURL.host else { return .allow }
             openInBrowser(url)
             return .cancel
         }

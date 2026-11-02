@@ -88,7 +88,14 @@ final class HealthMonitor: ObservableObject {
                     Task { @MainActor in self?.applyStateChange(event.data) }
                 },
                 onConnectionChange: { [weak self] isConnected in
-                    Task { @MainActor in self?.connected = isConnected }
+                    Task { @MainActor in
+                        self?.connected = isConnected
+                        // (Re)connexion : snapshot immédiat, comme dashboard.js,
+                        // plutôt que d'attendre le poll de 30 s. Couvre un
+                        // premier snapshot raté au lancement (serveur en
+                        // redémarrage) et les deltas manqués pendant la coupure.
+                        if isConnected { await self?.refreshSnapshot() }
+                    }
                 }
             )
         }

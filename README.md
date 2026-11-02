@@ -12,7 +12,7 @@ Pas de compte Apple Developer : signature ad-hoc (`codesign --sign -`), pas de n
 ## Mise en route (étapes manuelles, une seule fois)
 
 1. **Rendre le dépôt public** : Settings → General → Danger Zone → Change visibility → Public. Nécessaire pour que GitHub Pages (appcast) et les assets de Release (.dmg) soient téléchargeables sans authentification (Sparkle ne sait pas s'authentifier). Aucun secret n'est jamais committé ici — seule une IP tailscale de fsociety, non exploitable sans être pair du tailnet.
-2. **GitHub Pages** : Settings → Pages → Source = "Deploy from a branch" → branche `main`, dossier `/ (root)`. Sert `appcast.xml` à l'URL `https://hitsnow.github.io/Sentinelle_mac/appcast.xml` (déjà référencée dans `Resources/Info.plist`).
+2. **GitHub Pages** : Settings → Pages → Source = "Deploy from a branch" → branche `main`, dossier `/ (root)`. Sert `appcast.xml` à l'URL `https://elliotuexe.github.io/Sentinelle_mac/appcast.xml` (déjà référencée dans `Resources/Info.plist`).
 3. **Clés Sparkle — à générer EN LOCAL sur un Mac, jamais via la CI** (la clé privée ne doit jamais transiter par des logs, a fortiori sur un repo public) :
    ```sh
    curl -L -o /tmp/sparkle.tar.xz https://github.com/sparkle-project/Sparkle/releases/download/2.6.4/Sparkle-2.6.4.tar.xz

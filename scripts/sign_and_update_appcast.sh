@@ -50,7 +50,7 @@ echo "==> Régénération de l'appcast à partir de tout releases/"
 # la mise à jour côté client malgré un appcast valide.
 echo "$SPARKLE_PRIVATE_KEY" | "$SPARKLE_TOOLS_DIR/bin/generate_appcast" \
     --ed-key-file - \
-    --download-url-prefix "https://hitsnow.github.io/Sentinelle_mac/releases/" \
+    --download-url-prefix "https://elliotuexe.github.io/Sentinelle_mac/releases/" \
     "$RELEASES_DIR"
 
 cp "$RELEASES_DIR/appcast.xml" "$ROOT_DIR/appcast.xml"

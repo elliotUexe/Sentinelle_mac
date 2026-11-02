@@ -42,7 +42,7 @@
 	     parler : c'est la clé PUBLIQUE, sûre à committer, mais gérée comme
 	     un placeholder ici tant que la paire n'a pas été générée). -->
 	<key>SUFeedURL</key>
-	<string>https://hitsnow.github.io/Sentinelle_mac/appcast.xml</string>
+	<string>https://elliotuexe.github.io/Sentinelle_mac/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>__SPARKLE_PUBLIC_KEY__</string>
 	<key>SUEnableAutomaticChecks</key>

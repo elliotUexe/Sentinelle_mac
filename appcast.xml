@@ -8,10 +8,10 @@
             <sparkle:version>013</sparkle:version>
             <sparkle:shortVersionString>0.1.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://hitsnow.github.io/Sentinelle_mac/releases/SentinelMac-0.1.3.dmg" length="1387498" type="application/octet-stream" sparkle:edSignature="t6Dwv9d8xe7wSAsHRv81Kh6CReLeyCcGfVjcGW8M1yoJuiXwqX7J/5wt1M4c+sdmM+sBkrt8c6emwoYdW6QRAw=="/>
+            <enclosure url="https://elliotuexe.github.io/Sentinelle_mac/releases/SentinelMac-0.1.3.dmg" length="1387498" type="application/octet-stream" sparkle:edSignature="t6Dwv9d8xe7wSAsHRv81Kh6CReLeyCcGfVjcGW8M1yoJuiXwqX7J/5wt1M4c+sdmM+sBkrt8c6emwoYdW6QRAw=="/>
             <sparkle:deltas>
-                <enclosure url="https://hitsnow.github.io/Sentinelle_mac/releases/SentinelMac013-011.delta" sparkle:deltaFrom="011" length="78806" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="980240" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="ly0gvShrju4h6nZXIhJTacPgd/h+9e+BVigTrGWoTt/JHgISxoYHl/+SCp84cv1oMkaQgUQZ9AP3Pbhsm4gEAA=="/>
-                <enclosure url="https://hitsnow.github.io/Sentinelle_mac/releases/SentinelMac013-010.delta" sparkle:deltaFrom="010" length="79574" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="980240" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="0agRuYDJEetP4YXYI4+vVTOICYd4A5zgyIle/Ly2foW6MbJezIpW6IibMEhoL4D3PnVY0y7KN8I+zplX73pmDw=="/>
+                <enclosure url="https://elliotuexe.github.io/Sentinelle_mac/releases/SentinelMac013-011.delta" sparkle:deltaFrom="011" length="78806" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="980240" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="ly0gvShrju4h6nZXIhJTacPgd/h+9e+BVigTrGWoTt/JHgISxoYHl/+SCp84cv1oMkaQgUQZ9AP3Pbhsm4gEAA=="/>
+                <enclosure url="https://elliotuexe.github.io/Sentinelle_mac/releases/SentinelMac013-010.delta" sparkle:deltaFrom="010" length="79574" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="980240" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="0agRuYDJEetP4YXYI4+vVTOICYd4A5zgyIle/Ly2foW6MbJezIpW6IibMEhoL4D3PnVY0y7KN8I+zplX73pmDw=="/>
             </sparkle:deltas>
         </item>
         <item>
@@ -20,9 +20,9 @@
             <sparkle:version>011</sparkle:version>
             <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://hitsnow.github.io/Sentinelle_mac/releases/SentinelMac-0.1.1.dmg" length="1356738" type="application/octet-stream" sparkle:edSignature="28Owx6adgyxsAx5oZckf4qM5lyL7MDQh7O1Kmo6citvZH7vCQCtSzfk+zrJHTyfAaiXV5iRrF7J0nKlXpvgFCw=="/>
+            <enclosure url="https://elliotuexe.github.io/Sentinelle_mac/releases/SentinelMac-0.1.1.dmg" length="1356738" type="application/octet-stream" sparkle:edSignature="28Owx6adgyxsAx5oZckf4qM5lyL7MDQh7O1Kmo6citvZH7vCQCtSzfk+zrJHTyfAaiXV5iRrF7J0nKlXpvgFCw=="/>
             <sparkle:deltas>
-                <enclosure url="https://hitsnow.github.io/Sentinelle_mac/releases/SentinelMac011-010.delta" sparkle:deltaFrom="010" length="22174" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="980240" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="vJPp/UZaFHlahIX5TLS4dWS78yRCt/hND241M/E5BRvstYHTMuTCgYnopVnDvMxfYt4/+iGZoP7sOOD6UPRyCg=="/>
+                <enclosure url="https://elliotuexe.github.io/Sentinelle_mac/releases/SentinelMac011-010.delta" sparkle:deltaFrom="010" length="22174" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="980240" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="vJPp/UZaFHlahIX5TLS4dWS78yRCt/hND241M/E5BRvstYHTMuTCgYnopVnDvMxfYt4/+iGZoP7sOOD6UPRyCg=="/>
             </sparkle:deltas>
         </item>
         <item>
@@ -31,7 +31,7 @@
             <sparkle:version>010</sparkle:version>
             <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://hitsnow.github.io/Sentinelle_mac/releases/SentinelMac-0.1.0.dmg" length="1358103" type="application/octet-stream" sparkle:edSignature="r6Rd3CcOwvtp+xbVAYE4ptIjtmFz6+pr99RsaVEsU2ScXlcoUZ0jhGljJSD2gUxjcudLcyRoUTifuZ3FGZhXDA=="/>
+            <enclosure url="https://elliotuexe.github.io/Sentinelle_mac/releases/SentinelMac-0.1.0.dmg" length="1358103" type="application/octet-stream" sparkle:edSignature="r6Rd3CcOwvtp+xbVAYE4ptIjtmFz6+pr99RsaVEsU2ScXlcoUZ0jhGljJSD2gUxjcudLcyRoUTifuZ3FGZhXDA=="/>
         </item>
     </channel>
 </rss>

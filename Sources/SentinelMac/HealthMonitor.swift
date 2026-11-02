@@ -7,6 +7,14 @@ import SwiftUI
 /// traité comme non alarmant ci-dessous (ni down ni degraded).
 enum ServiceStatus: String, Decodable {
     case up, down, degraded, suppressed_down, unknown, muted
+
+    /// Un statut inconnu côté app (nouveau `HealthStatus` ajouté au serveur)
+    /// ne doit pas faire échouer le décodage de tout le snapshot, sinon l'app
+    /// reste figée sur son dernier état : on retombe sur `.unknown`.
+    init(from decoder: Decoder) throws {
+        let raw = try decoder.singleValueContainer().decode(String.self)
+        self = ServiceStatus(rawValue: raw) ?? .unknown
+    }
 }
 
 private struct ServiceSummary: Decodable {

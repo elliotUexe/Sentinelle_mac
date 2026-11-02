@@ -15,6 +15,7 @@ struct MenuContentView: View {
 
             Button("Ouvrir le dashboard") {
                 openWindow(id: "dashboard")
+                bringDashboardToFront()
             }
 
             Button("Vérifier les mises à jour…") {
@@ -35,6 +36,21 @@ struct MenuContentView: View {
         }
         .padding(12)
         .frame(width: 220)
+    }
+
+    /// L'app est un agent de barre de menu (`LSUIElement`) : elle n'est jamais
+    /// active d'elle-même, donc sa fenêtre s'ouvrait derrière les autres
+    /// applications. On l'active explicitement, puis on remonte la fenêtre
+    /// (créée de façon asynchrone par `openWindow`) au premier plan.
+    private func bringDashboardToFront() {
+        if #available(macOS 14.0, *) {
+            NSApp.activate()
+        } else {
+            NSApp.activate(ignoringOtherApps: true)
+        }
+        DispatchQueue.main.async {
+            NSApp.windows.first { $0.title == "Dashboard Sentinel" }?.makeKeyAndOrderFront(nil)
+        }
     }
 
     private var summaryText: String {
